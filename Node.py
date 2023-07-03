@@ -13,8 +13,10 @@ class Node:
         self.visited = False
 
 def dfs(target: Node) -> float | None:
+    if target.name == 't': return 1000
     if target.value is not None:
         return target.value
+    target.visited = True
     value = None
     for edges in target.edgeses:
         able = True
@@ -44,6 +46,7 @@ def dfs(target: Node) -> float | None:
     return value
 
 def get_value(target: Node, nodes: Dict[str,Node]) -> float | None:
+    if target.name == 't': return 1000
     if target.value is not None:
         return target.value
     
